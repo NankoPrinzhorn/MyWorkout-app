@@ -1,29 +1,30 @@
 <script lang="ts">
-import {defineComponent} from "vue";
-import MenuComponent from "../components/MenuComponent.vue";
-import {useMeta} from "vue-meta";
+import { defineComponent } from 'vue';
+import { useMeta } from 'vue-meta';
+
+import MenuComponent from '../components/MenuComponent.vue';
 
 export default defineComponent({
-  name: "Statistics",
+    name: 'Statistics',
 
-  components: {
-    MenuComponent,
-  },
+    components: {
+        MenuComponent,
+    },
 
-  setup() {
-    useMeta({
-      title: "Statistics",
-      description: "All your statistics ",
-    });
-  }
-})
+    setup() {
+        useMeta({
+            title: 'Statistics',
+            description: 'All your statistics ',
+        });
+    },
+});
 </script>
 
 <template>
-  <div class="flex">
-    <MenuComponent />
-    <div class="grow p-4">
-      Statistics
+    <div class="flex">
+        <MenuComponent />
+        <div class="grow p-4">
+            Statistics
+        </div>
     </div>
-  </div>
 </template>

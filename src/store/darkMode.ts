@@ -1,4 +1,4 @@
-import {defineStore} from "pinia";
+import { defineStore } from 'pinia';
 
 export const useDarkModeStore = defineStore('darkMode', {
     state: () => ({
@@ -7,7 +7,7 @@ export const useDarkModeStore = defineStore('darkMode', {
     actions: {
         init() {
             if (this.darkMode) {
-                document.body.classList.add('dark')
+                document.body.classList.add('dark');
             }
         },
 
@@ -17,10 +17,10 @@ export const useDarkModeStore = defineStore('darkMode', {
             localStorage.theme = this.darkMode ? 'dark' : 'light';
 
             if (this.darkMode) {
-                document.body.classList.add('dark')
+                document.body.classList.add('dark');
             } else {
-                document.body.classList.remove('dark')
+                document.body.classList.remove('dark');
             }
-        }
-    }
+        },
+    },
 });

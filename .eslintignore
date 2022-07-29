@@ -1,0 +1,16 @@
+ios
+android
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+src/shims-vue.d.ts
+src/main.ts
+
+tailwind.config.js
+
+capacitor-webauthn-plugin
