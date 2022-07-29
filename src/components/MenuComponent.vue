@@ -57,7 +57,7 @@ export default defineComponent({
     </div>
 
     <div>
-      <div @click="darkModeStore.toggleDarkMode()" class="iconWrapper">
+      <div @click="darkModeStore.toggleDarkMode()" class="iconWrapper hover:scale-110">
         <div class="w-5 h-5">
           <Transition name="moon-fade">
             <MoonIcon v-if="!darkModeStore.darkMode" class="w-5 h-5 absolute" />
