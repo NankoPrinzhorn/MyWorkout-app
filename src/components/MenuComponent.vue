@@ -37,19 +37,19 @@ export default defineComponent({
 <template>
   <div class="shrink flex flex-col justify-between h-screen w-16 border-r border-neutral-400 dark:border-neutral-800 z-50">
     <div>
-      <router-link to="/dashboard">
+      <router-link to="/dashboard" aria-label="Dashboard">
         <div class="iconWrapper group">
           <HouseIcon class="icon" />
         </div>
       </router-link>
 
-      <router-link to="/trainings">
+      <router-link to="/trainings" aria-label="Training">
         <div class="iconWrapper group">
           <DumbbellIcon class="icon" />
         </div>
       </router-link>
 
-      <router-link to="/statistics">
+      <router-link to="/statistics" aria-label="Statistics">
         <div class="iconWrapper group">
           <ChartLine class="icon" />
         </div>

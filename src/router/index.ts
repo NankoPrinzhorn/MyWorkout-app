@@ -15,18 +15,18 @@ const routes = [
     {
         path: '/trainings',
         name: 'trainings',
-        component: () => import('../views/Trainings.vue'),
+        component: () => import('../views/Training.vue'),
     },
 
     {
         path: '/statistics',
         name: 'statistics',
-        component: () => import('../views/Statistics.vue'),
+        component: () => import('../views/Statistic.vue'),
     },
 ]
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(),
     routes
 })
 

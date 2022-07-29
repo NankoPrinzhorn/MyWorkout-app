@@ -1,12 +1,20 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import MenuComponent from "../components/MenuComponent.vue";
+import {useMeta} from "vue-meta";
 
 export default defineComponent({
   name: "Dashboard",
 
   components: {
     MenuComponent,
+  },
+
+  setup() {
+    useMeta({
+      title: "Dashboard",
+      description: "An overview of your workout history and statistics.",
+    });
   }
 })
 </script>
