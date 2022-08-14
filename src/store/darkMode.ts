@@ -7,7 +7,7 @@ export const useDarkModeStore = defineStore('darkMode', {
     actions: {
         init() {
             if (this.darkMode) {
-                document.body.classList.add('dark');
+                document.documentElement.classList.add('dark');
             }
         },
 
@@ -17,9 +17,9 @@ export const useDarkModeStore = defineStore('darkMode', {
             localStorage.theme = this.darkMode ? 'dark' : 'light';
 
             if (this.darkMode) {
-                document.body.classList.add('dark');
+                document.documentElement.classList.add('dark');
             } else {
-                document.body.classList.remove('dark');
+                document.documentElement.classList.remove('dark');
             }
         },
     },

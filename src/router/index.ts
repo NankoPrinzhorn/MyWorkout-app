@@ -3,26 +3,47 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
     {
         path: '/',
-        redirect: '/dashboard',
+        redirect: '/home',
     },
 
     {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: () => import('../views/Dashboard.vue'),
+        path: '/home',
+        name: 'home',
+        component: () => import('../views/Home.vue'),
     },
 
     {
-        path: '/trainings',
-        name: 'trainings',
-        component: () => import('../views/Training.vue'),
+        path: '/workouts',
+        children: [
+            {
+                path: '',
+                name: 'workouts',
+                component: () => import('../views/Workouts/Workouts.vue'),
+            },
+            {
+                path: ':workoutId/exercises',
+                name: 'exercises',
+                component: () => import('../views/Workouts/Exercises.vue'),
+            },
+            {
+                path: ':workoutId/exercises/:exerciseId',
+                name: 'exercise',
+                component: () => import('../views/Workouts/Exercise.vue'),
+            },
+        ],
     },
 
     {
-        path: '/statistics',
-        name: 'statistics',
-        component: () => import('../views/Statistic.vue'),
+        path: '/settings',
+        name: 'settings',
+        component: () => import('../views/Setting.vue'),
     },
+
+    {
+        path: '/:catchAll(.*)',
+        redirect: '/home',
+    },
+
 ];
 
 const router = createRouter({

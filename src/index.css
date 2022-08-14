@@ -1,3 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    font-family: 'Kalam', cursive;
+}
+
+body {
+    /* Light mode */
+    @apply bg-neutral-100 text-neutral-800;
+
+    /* Dark mode */
+    @apply dark:bg-neutral-900 dark:text-neutral-100;
+}
+
+input {
+    @apply border rounded py-2 px-3 leading-tight outline-none;
+
+    /*!* Light mode *!*/
+    @apply bg-white focus:border-neutral-700;
+
+    /*!* Dark mode *!*/
+    @apply dark:bg-neutral-800 dark:border-neutral-700 dark:bg-neutral-900;
+}
+
+.title {
+    @apply text-center font-bold text-3xl mt-5;
+}
+
+.small-text {
+    @apply block text-xs;
+
+    /* Light mode */
+    @apply text-neutral-400;
+
+    /* Dark mode */
+    @apply dark:text-neutral-400;
+}
+
+.link {
+    @apply block text-red-500 text-right mt-4;
+
+    /* Light mode */
+    @apply hover:text-red-700;
+
+    /* Dark mode */
+    @apply dark:hover:text-red-700;
+}
+
+.iconWrapper {
+    @apply m-2 p-3 rounded cursor-pointer;
+}
+
+.icon {
+    @apply w-6 h-6 transition-all group-hover:scale-110 fill-inherit select-none;
+
+    /* Light mode */
+    @apply fill-neutral-500;
+
+    /* Dark mode */
+    @apply dark:fill-neutral-200;
+}
+
+.router-link-active .icon {
+    @apply fill-red-500;
+}

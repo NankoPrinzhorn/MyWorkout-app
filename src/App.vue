@@ -1,22 +1,9 @@
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
-import { useDarkModeStore } from './store/darkMode';
+import MenuComponent from './components/MenuComponent.vue';
 
-export default defineComponent({
-    name: 'App',
-
-    setup() {
-        const appName = ref<string>(import.meta.env.VITE_APP_NAME);
-
-        const darkMode = ref<boolean>(useDarkModeStore().darkMode);
-
-        return {
-            appName,
-            darkMode,
-        };
-    },
-});
+const appName = ref<string>(import.meta.env.VITE_APP_NAME);
 </script>
 
 <template>
@@ -26,7 +13,15 @@ export default defineComponent({
         </template>
     </metainfo>
 
-    <div class="bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 fill-neutral-700 dark:fill-neutral-200">
-        <router-view></router-view>
+    <div class="flex">
+        <MenuComponent />
+
+        <div class="grow ml-16 p-4">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
+
+<style scoped>
+
+</style>
