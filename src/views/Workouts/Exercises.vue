@@ -21,13 +21,13 @@ useMeta({
         {{ workout.name }}
     </h2>
 
-    <a @click="$router.go(-1)">
+    <a class="link" @click="$router.back()">
         Back
     </a>
 
     <template v-for="exercise in workout.exercises" :key="exercise.id">
         <router-link :to="{ name: 'exercise', params: { workoutId: workout.id, exerciseId: exercise.id}}" class="block">
-            <div class="exercise">
+            <div class="wrapper">
                 <span>{{ exercise.name }}</span>
                 <span>{{ exercise.weight }}kg | {{ exercise.sets.map((set: any) => set.reps).join('x') }}</span>
             </div>
@@ -36,13 +36,7 @@ useMeta({
 </template>
 
 <style scoped>
-.exercise {
-    @apply p-4 my-4 rounded shadow flex justify-between items-center;
-
-    /* Light mode */
-    @apply bg-white;
-
-    /* Dark mode */
-    @apply dark:bg-neutral-800;
+.wrapper {
+    @apply flex justify-between items-center;
 }
 </style>

@@ -20,7 +20,7 @@ useMeta({
     </h2>
 
     <template v-for="workout in workouts" :key="workout.id">
-        <div class="workout">
+        <div class="wrapper">
             <h3><strong>{{ workout.day }}</strong> - {{ workout.name }}</h3>
 
             <div class="my-4 cursor-pointer" @click="workout.collapsed = !workout.collapsed">
@@ -43,15 +43,3 @@ useMeta({
         </div>
     </template>
 </template>
-
-<style scoped>
-.workout {
-    @apply p-4 my-4 rounded shadow;
-
-    /* Light mode */
-    @apply bg-white;
-
-    /* Dark mode */
-    @apply dark:bg-neutral-800;
-}
-</style>

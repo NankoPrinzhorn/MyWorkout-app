@@ -5,8 +5,14 @@ import MoonIcon from '../assets/icons/Moon.svg?component';
 import SunIcon from '../assets/icons/Sun.svg?component';
 
 import { useDarkModeStore } from '../store/darkMode';
+import { useUserStore } from '../store/user';
 
 const darkModeStore = useDarkModeStore();
+const userStore = useUserStore();
+
+function logout() {
+    userStore.logout();
+}
 
 useMeta({
     title: 'Settings',
@@ -20,11 +26,17 @@ useMeta({
             Settings
         </h2>
 
-        <div class="setting" @click="darkModeStore.toggleDarkMode()">
+        <div class="wrapper flex justify-between items-center cursor-pointer" @click="darkModeStore.toggleDarkMode()">
             <span>Dark mode theme</span>
 
             <MoonIcon v-if="!darkModeStore.darkMode" class="icon"/>
             <SunIcon v-if="darkModeStore.darkMode" class="icon"/>
+        </div>
+
+        <div class="wrapper cursor-pointer">
+            <a class="link !mt-0" @click.prevent="logout">
+                Logout
+            </a>
         </div>
     </div>
 </template>

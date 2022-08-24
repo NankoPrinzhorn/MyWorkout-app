@@ -22,11 +22,11 @@ useMeta({
             {{ exercise.name }}
         </h2>
 
-        <a @click="$router.go(-1)">
+        <a class="link" @click="$router.back()">
             Back
         </a>
 
-        <div class="exercise-block">
+        <div class="wrapper">
             <div class="exercise-row">
                 <span>Weight:</span>
                 <span>{{ exercise.weight }}</span>
@@ -47,7 +47,7 @@ useMeta({
             </span>
         </div>
 
-        <div class="exercise-block">
+        <div class="wrapper">
             <div class="exercise-row">
                 <span>Reps:</span>
                 <input
@@ -83,16 +83,6 @@ useMeta({
 </template>
 
 <style scoped>
-.exercise-block {
-    @apply p-4 my-4 rounded shadow;
-
-    /* Light mode */
-    @apply bg-white;
-
-    /* Dark mode */
-    @apply dark:bg-neutral-800;
-}
-
 .exercise-row {
     @apply flex flex-col justify-between items-center;
 }

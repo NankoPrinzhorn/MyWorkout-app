@@ -30,6 +30,16 @@ input {
     @apply text-center font-bold text-3xl mt-5;
 }
 
+.wrapper {
+    @apply p-4 my-4 rounded shadow;
+
+    /* Light mode */
+    @apply bg-white;
+
+    /* Dark mode */
+    @apply dark:bg-neutral-800;
+}
+
 .small-text {
     @apply block text-xs;
 
@@ -41,7 +51,7 @@ input {
 }
 
 .link {
-    @apply block text-red-500 text-right mt-4;
+    @apply block text-red-400 mt-4 cursor-pointer;
 
     /* Light mode */
     @apply hover:text-red-700;

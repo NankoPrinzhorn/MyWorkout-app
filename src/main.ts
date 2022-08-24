@@ -7,6 +7,8 @@ import router from './router';
 
 import './index.css';
 
+import './services/axios';
+
 import { useDarkModeStore } from './store/darkMode';
 
 const app = createApp(App);

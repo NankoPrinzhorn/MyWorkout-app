@@ -1,9 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
 import MenuComponent from './components/MenuComponent.vue';
+import { useUserStore } from './store/user';
+
+const route = useRoute();
+const userStore = useUserStore();
 
 const appName = ref<string>(import.meta.env.VITE_APP_NAME);
+const showMenu = ref<boolean>(true);
+
+watch(route, (newRoute) => {
+    const name = ref<any>(newRoute.name);
+
+    userStore.me();
+
+    showMenu.value = !['login', 'register'].includes(name.value);
+});
 </script>
 
 <template>
@@ -14,14 +28,13 @@ const appName = ref<string>(import.meta.env.VITE_APP_NAME);
     </metainfo>
 
     <div class="flex">
-        <MenuComponent />
+        <MenuComponent v-if="showMenu"/>
 
-        <div class="grow ml-16 p-4">
+        <div
+            class="grow p-4"
+            :class="{ 'ml-16': showMenu }"
+        >
             <router-view></router-view>
         </div>
     </div>
 </template>
-
-<style scoped>
-
-</style>
