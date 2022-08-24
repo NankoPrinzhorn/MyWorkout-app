@@ -22,9 +22,9 @@ useMeta({
             {{ exercise.name }}
         </h2>
 
-        <a class="link" @click="$router.back()">
+        <span class="link" @click="$router.back()">
             Back
-        </a>
+        </span>
 
         <div class="wrapper">
             <div class="exercise-row">

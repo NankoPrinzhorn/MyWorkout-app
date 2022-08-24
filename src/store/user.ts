@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { defineStore } from 'pinia';
 import router from '../router';
 
@@ -11,18 +11,16 @@ export const useUserStore = defineStore('user', {
 
     actions: {
         async me() {
-            await axios.get(
+            return axios.get(
                 'auth/me',
             ).then((response: AxiosResponse) => {
                 this.name = response.data.name;
                 this.email = response.data.email;
-            }).catch(() => {
-                // console.log(error);
-            });
+            }).catch((error: AxiosError) => error?.response?.data);
         },
 
         async login(credentials: object) {
-            await axios.post(
+            return axios.post(
                 'auth/login',
                 credentials,
             ).then((response: AxiosResponse) => {
@@ -32,7 +30,21 @@ export const useUserStore = defineStore('user', {
                 localStorage.setItem('access_token', response.data.access_token);
 
                 router.push({ name: 'home' });
-            });
+            }).catch((error: AxiosError) => error?.response?.data);
+        },
+
+        async register(credentials: object) {
+            return axios.post(
+                'auth/register',
+                credentials,
+            ).then((response: AxiosResponse) => {
+                this.name = response.data.name;
+                this.email = response.data.email;
+
+                localStorage.setItem('access_token', response.data.access_token);
+
+                router.push({ name: 'home' });
+            }).catch((error: AxiosError) => error?.response?.data);
         },
 
         async logout() {
@@ -45,7 +57,7 @@ export const useUserStore = defineStore('user', {
                 localStorage.setItem('access_token', '');
 
                 router.push({ name: 'login' });
-            });
+            }).catch((error: AxiosError) => error?.response?.data);
         },
     },
 });

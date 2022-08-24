@@ -21,9 +21,9 @@ useMeta({
         {{ workout.name }}
     </h2>
 
-    <a class="link" @click="$router.back()">
+    <span class="link" @click="$router.back()">
         Back
-    </a>
+    </span>
 
     <template v-for="exercise in workout.exercises" :key="exercise.id">
         <router-link :to="{ name: 'exercise', params: { workoutId: workout.id, exerciseId: exercise.id}}" class="block">

@@ -20,8 +20,10 @@ axios.interceptors.response.use(
     (error: AxiosError) => {
         const currentRoute = ref<any>(router.currentRoute.value.name);
 
-        if (error?.response?.status === 401 && !['login', 'register'].includes(currentRoute)) {
+        if (error?.response?.status === 401 && !['login', 'register'].includes(currentRoute.value)) {
             router.push({ name: 'login' });
         }
+
+        return Promise.reject(error);
     },
 );

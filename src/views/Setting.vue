@@ -34,9 +34,9 @@ useMeta({
         </div>
 
         <div class="wrapper cursor-pointer">
-            <a class="link !mt-0" @click.prevent="logout">
+            <span class="link !mt-0" @click.prevent="logout">
                 Logout
-            </a>
+            </span>
         </div>
     </div>
 </template>
