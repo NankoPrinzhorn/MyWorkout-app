@@ -35,7 +35,7 @@ const routes = [
             {
                 path: ':workoutId/exercises',
                 name: 'exercises',
-                component: () => import('../views/Workouts/Exercises.vue'),
+                component: () => import('../views/Workouts/Workout.vue'),
             },
             {
                 path: ':workoutId/exercises/:exerciseId',

@@ -11,10 +11,10 @@ const userStore = useUserStore();
 const appName = ref<string>(import.meta.env.VITE_APP_NAME);
 const showMenu = ref<boolean>(true);
 
+userStore.me();
+
 watch(route, (newRoute) => {
     const name = ref<any>(newRoute.name);
-
-    userStore.me();
 
     showMenu.value = !['login', 'register'].includes(name.value);
 });

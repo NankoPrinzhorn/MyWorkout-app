@@ -27,7 +27,7 @@ useMeta({
             Login
         </h2>
 
-        <div class="flex justify-center mt-16">
+        <div class="flex justify-center mt-8">
             <form class="wrapper !p-8 w-full max-w-md flex flex-col space-y-8" @submit.prevent="login">
                 <label>
                     <p>Email</p>
@@ -54,8 +54,6 @@ useMeta({
                 <button type="submit" class="bg-red-500 text-neutral-900 rounded py-2">
                     Login
                 </button>
-
-
 
                 <span class="text-sm text-right">
                     Don't have an account?

@@ -31,7 +31,7 @@ useMeta({
             Register
         </h2>
 
-        <div class="flex justify-center mt-16">
+        <div class="flex justify-center mt-8">
             <form class="wrapper !p-8 w-full max-w-md flex flex-col space-y-8"  @submit.prevent="register">
                 <label>
                     <p>Name</p>
